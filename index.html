@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NOIRÉ — Coffee, Crafted Slowly. Light luxury coffee studio experience.">
+    <title>NOIRÉ — Coffee Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="loading-state">
+
+    <!-- Custom Desktop Cursor -->
+    <div class="custom-cursor" id="cursor-dot"></div>
+    <div class="cursor-follower" id="cursor-follower">
+        <span class="cursor-text" id="cursor-text">EXPLORE</span>
+    </div>
+
+    <!-- Minimal Light Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo" aria-label="NOIRÉ Home">NOIRÉ</a>
+            
+            <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#story" class="nav-link">STORY</a></li>
+                    <li><a href="#menu" class="nav-link">SIGNATURES</a></li>
+                    <li><a href="#builder" class="nav-link">BUILD CUP</a></li>
+                    <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#builder" class="btn-nav-order">
+                    <span>ORDER COFFEE</span>
+                    <svg class="nav-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+                <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay (Light Cream Aesthetic) -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer-inner">
+            <ul class="mobile-nav-links">
+                <li><a href="#story" class="mobile-nav-link">STORY</a></li>
+                <li><a href="#menu" class="mobile-nav-link">SIGNATURES</a></li>
+                <li><a href="#builder" class="mobile-nav-link">BUILD CUP</a></li>
+                <li><a href="#experience" class="mobile-nav-link">EXPERIENCE</a></li>
+                <li><a href="#cta" class="mobile-nav-link">CONTACT</a></li>
+            </ul>
+            <div class="mobile-drawer-footer">
+                <span class="brand-tagline">COFFEE, CRAFTED SLOWLY.</span>
+                <p class="mobile-copyright">&copy; 2026 NOIRÉ COFFEE STUDIO</p>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">
+
+        <!-- ===================================================================
+             SECTION 01 — EDITORIAL HERO (SPLIT LAYOUT 55% / 45%)
+             =================================================================== -->
+        <section class="hero-section" id="hero">
+            
+            <!-- Subtle Ambient Floating Coffee Beans -->
+            <div class="floating-beans-container" id="hero-beans">
+                <div class="coffee-bean bean-1"></div>
+                <div class="coffee-bean bean-2"></div>
+                <div class="coffee-bean bean-3"></div>
+            </div>
+
+            <div class="hero-container">
+                
+                <!-- Left Column (50–55%): Editorial Content & Typography -->
+                <div class="hero-content">
+                    
+                    <div class="hero-brand-label hero-anim hero-anim-1">
+                        <span class="label-code">NOIRÉ / COFFEE STUDIO</span>
+                    </div>
+
+                    <h1 class="hero-headline">
+                        <span class="headline-mask">
+                            <span class="headline-text hero-anim hero-anim-2">COFFEE,</span>
+                        </span>
+                        <span class="headline-mask">
+                            <span class="headline-text hero-anim hero-anim-3">CRAFTED</span>
+                        </span>
+                        <span class="headline-mask">
+                            <span class="headline-text highlight-text hero-anim hero-anim-4">SLOWLY.</span>
+                        </span>
+                    </h1>
+
+                    <p class="hero-subtext hero-anim hero-anim-5">
+                        Coffee made with patience.<br>
+                        Designed for moments worth remembering.
+                    </p>
+
+                    <div class="hero-cta-wrapper hero-anim hero-anim-6">
+                        <a href="#story" class="btn-hero-cta">
+                            <span class="btn-text">EXPLORE THE EXPERIENCE</span>
+                            <svg class="btn-arrow" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Bottom-Left Editorial Detail Callout -->
+                    <div class="hero-detail-callout hero-anim hero-anim-7">
+                        <span class="callout-num">01</span>
+                        <div class="callout-text">
+                            <strong>SLOW ROAST</strong>
+                            <span>Carefully roasted beans for a deeper expression.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column (45–50%): Bright Editorial Visual Framing -->
+                <div class="hero-visual">
+                    <div class="hero-image-frame" data-cursor-view>
+                        
+                        <!-- Steam Animation -->
+                        <div class="steam-container">
+                            <div class="steam-particle steam-1"></div>
+                            <div class="steam-particle steam-2"></div>
+                        </div>
+
+                        <!-- Sunlit Ceramic Coffee Cup Visual -->
+                        <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=1200&auto=format&fit=crop" 
+                             alt="Ceramic coffee cup on sunlit stone surface with soft morning light" 
+                             class="hero-img hero-anim hero-anim-visual"
+                             id="hero-img"
+                             loading="eager">
+
+                        <div class="vertical-tag-label">
+                            <span>FROM BEAN TO MOMENT</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="hero-scroll-indicator hero-anim hero-anim-scroll">
+                <a href="#story" aria-label="Scroll to discover Noiré story">
+                    <span class="scroll-label">SCROLL TO DISCOVER</span>
+                    <div class="scroll-track">
+                        <div class="scroll-thumb"></div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 02 — THE STORY (FROM BEAN TO MOMENT)
+             =================================================================== -->
+        <section class="story-section section-padding" id="story">
+            <div class="container">
+                
+                <div class="story-grid">
+                    <!-- Left: Large Coffee Farm / Beans Visual -->
+                    <div class="story-visual-col reveal-scale">
+                        <div class="editorial-frame" data-cursor-view>
+                            <img src="https://images.unsplash.com/photo-1587734195503-904fca47e0e9?q=80&w=1200&auto=format&fit=crop" 
+                                 alt="Roasted coffee beans scattered on light stone surface" 
+                                 class="story-img"
+                                 loading="lazy">
+                            <div class="frame-tag">ORIGIN & CRAFT</div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Story Stages -->
+                    <div class="story-content-col">
+                        <span class="section-label reveal-up">THE JOURNEY</span>
+                        <h2 class="editorial-heading reveal-up" data-delay="100">
+                            FROM BEAN<br>
+                            <em>TO MOMENT.</em>
+                        </h2>
+
+                        <div class="story-stages-list">
+                            
+                            <!-- Stage 01 -->
+                            <div class="stage-item active reveal-up" data-delay="150">
+                                <span class="stage-num">01</span>
+                                <div class="stage-info">
+                                    <h3 class="stage-title">BEAN</h3>
+                                    <p class="stage-desc">Single-origin Ethiopian cherries hand-harvested at peak ripeness.</p>
+                                </div>
+                            </div>
+
+                            <!-- Stage 02 -->
+                            <div class="stage-item reveal-up" data-delay="250">
+                                <span class="stage-num">02</span>
+                                <div class="stage-info">
+                                    <h3 class="stage-title">ROAST</h3>
+                                    <p class="stage-desc">Slow wood-fired roasting over cherrywood timber in small batches.</p>
+                                </div>
+                            </div>
+
+                            <!-- Stage 03 -->
+                            <div class="stage-item reveal-up" data-delay="350">
+                                <span class="stage-num">03</span>
+                                <div class="stage-info">
+                                    <h3 class="stage-title">GRIND</h3>
+                                    <p class="stage-desc">Precision micro-milled using titanium burrs immediately before brewing.</p>
+                                </div>
+                            </div>
+
+                            <!-- Stage 04 -->
+                            <div class="stage-item reveal-up" data-delay="450">
+                                <span class="stage-num">04</span>
+                                <div class="stage-info">
+                                    <h3 class="stage-title">BREW</h3>
+                                    <p class="stage-desc">Extracted at 93.5°C using mineral-balanced water for silky clarity.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 03 — SIGNATURES MENU (EDITORIAL VARIED PHOTOGRAPHY)
+             =================================================================== -->
+        <section class="menu-section section-padding" id="menu">
+            <div class="container">
+                <div class="menu-header">
+                    <div>
+                        <span class="section-label reveal-up">ATELIER MENU</span>
+                        <h2 class="section-title reveal-up" data-delay="100">SIGNATURES</h2>
+                    </div>
+                    <p class="menu-intro reveal-up" data-delay="200">
+                        Four distinct expressions of slow-crafted coffee, served in handcrafted ceramics.
+                    </p>
+                </div>
+
+                <div class="menu-grid">
+                    
+                    <!-- Item 1: Espresso (Portafilter Extraction Visual) -->
+                    <article class="menu-item reveal-up" data-delay="100" data-cursor-view>
+                        <div class="menu-item-media">
+                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Close-up espresso extraction from portafilter" 
+                                 class="menu-img"
+                                 loading="lazy">
+                            <span class="menu-num">01</span>
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-head">
+                                <h3 class="menu-item-title">ESPRESSO</h3>
+                                <span class="menu-price">$6.50</span>
+                            </div>
+                            <span class="menu-category">DOUBLE SHOT • SINGLE ORIGIN</span>
+                            <p class="menu-item-desc">
+                                Concentrated extraction featuring notes of bergamot, dark cacao, and honeyed crema.
+                            </p>
+                            <a href="#builder" class="menu-link">
+                                <span>CUSTOMIZE</span>
+                                <svg class="link-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="menu-accent-line"></div>
+                    </article>
+
+                    <!-- Item 2: Latte (Milk Pouring Visual) -->
+                    <article class="menu-item reveal-up" data-delay="250" data-cursor-view>
+                        <div class="menu-item-media">
+                            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Barista hands pouring steamed milk into coffee" 
+                                 class="menu-img"
+                                 loading="lazy">
+                            <span class="menu-num">02</span>
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-head">
+                                <h3 class="menu-item-title">CREAMY LATTE</h3>
+                                <span class="menu-price">$8.00</span>
+                            </div>
+                            <span class="menu-category">MICRO-FOAM • OAT MILK</span>
+                            <p class="menu-item-desc">
+                                Espresso combined with steamed silky oat milk and a touch of vanilla bean.
+                            </p>
+                            <a href="#builder" class="menu-link">
+                                <span>CUSTOMIZE</span>
+                                <svg class="link-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="menu-accent-line"></div>
+                    </article>
+
+                    <!-- Item 3: Cold Brew (Glass with Ice Cubes Visual) -->
+                    <article class="menu-item reveal-up" data-delay="400" data-cursor-view>
+                        <div class="menu-item-media">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Transparent glass with ice cubes and iced cold brew" 
+                                 class="menu-img"
+                                 loading="lazy">
+                            <span class="menu-num">03</span>
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-head">
+                                <h3 class="menu-item-title">COLD BREW</h3>
+                                <span class="menu-price">$7.50</span>
+                            </div>
+                            <span class="menu-category">24H STEEPED • NITRO INFUSED</span>
+                            <p class="menu-item-desc">
+                                Steeped cold for 24 hours over hand-cut ice cubes for a naturally sweet, low-acid cup.
+                            </p>
+                            <a href="#builder" class="menu-link">
+                                <span>CUSTOMIZE</span>
+                                <svg class="link-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="menu-accent-line"></div>
+                    </article>
+
+                    <!-- Item 4: Iced Mocha (Artisanal Chocolate Visual) -->
+                    <article class="menu-item reveal-up" data-delay="550" data-cursor-view>
+                        <div class="menu-item-media">
+                            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Chocolate and iced mocha drink composition" 
+                                 class="menu-img"
+                                 loading="lazy">
+                            <span class="menu-num">04</span>
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-head">
+                                <h3 class="menu-item-title">ICED MOCHA</h3>
+                                <span class="menu-price">$8.50</span>
+                            </div>
+                            <span class="menu-category">70% SINGLE ORIGIN CACAO</span>
+                            <p class="menu-item-desc">
+                                Espresso layered over artisanal melted dark cacao, cold milk, and whipped cream.
+                            </p>
+                            <a href="#builder" class="menu-link">
+                                <span>CUSTOMIZE</span>
+                                <svg class="link-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="menu-accent-line"></div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 04 — BUILD YOUR PERFECT CUP (PRESERVED FUNCTIONALITY, LIGHT UI)
+             =================================================================== -->
+        <section class="builder-section section-padding" id="builder">
+            <div class="container">
+                <div class="builder-header text-center">
+                    <span class="section-label reveal-up">INTERACTIVE ATELIER</span>
+                    <h2 class="section-title reveal-up" data-delay="100">BUILD YOUR PERFECT CUP.</h2>
+                    <p class="section-description reveal-up" data-delay="200">
+                        Start with an empty glass. Select ingredients to layer your custom creation step-by-step.
+                    </p>
+                </div>
+
+                <!-- 3-Column Light Interactive Cup Builder Canvas -->
+                <div class="builder-workspace reveal-scale" data-delay="300">
+                    
+                    <!-- Left: Ingredient Control Buttons -->
+                    <div class="builder-controls">
+                        <h3 class="controls-title">INGREDIENTS</h3>
+                        
+                        <button class="btn-ingredient" id="btn-ice" data-ingredient="ice">
+                            <span class="ing-icon">🧊</span>
+                            <span class="ing-name">ICE CUBES</span>
+                            <span class="ing-status" id="status-ice">+ ADD</span>
+                        </button>
+
+                        <button class="btn-ingredient" id="btn-coffee" data-ingredient="coffee">
+                            <span class="ing-icon">☕</span>
+                            <span class="ing-name">ESPRESSO SHOT</span>
+                            <span class="ing-status" id="status-coffee">+ POUR</span>
+                        </button>
+
+                        <button class="btn-ingredient" id="btn-milk" data-ingredient="milk">
+                            <span class="ing-icon">🥛</span>
+                            <span class="ing-name">STEAMED MILK</span>
+                            <span class="ing-status" id="status-milk">+ POUR</span>
+                        </button>
+
+                        <button class="btn-ingredient" id="btn-sugar" data-ingredient="sugar">
+                            <span class="ing-icon">🍬</span>
+                            <span class="ing-name">RAW SUGAR</span>
+                            <span class="ing-status" id="status-sugar">+ ADD</span>
+                        </button>
+
+                        <button class="btn-ingredient" id="btn-cream" data-ingredient="cream">
+                            <span class="ing-icon">🍨</span>
+                            <span class="ing-name">WHIPPED CREAM</span>
+                            <span class="ing-status" id="status-cream">+ TOP</span>
+                        </button>
+
+                        <button class="btn-reset-cup" id="btn-reset">
+                            <span>↺ RESET CUP</span>
+                        </button>
+                    </div>
+
+                    <!-- Center: Interactive Glass Canvas -->
+                    <div class="builder-canvas">
+                        <div class="glass-stage" id="glass-stage">
+                            
+                            <!-- Liquid Stream Pour Effect -->
+                            <div class="liquid-stream" id="liquid-stream"></div>
+
+                            <!-- Transparent Glass Container -->
+                            <div class="glass-container" id="glass-container">
+                                
+                                <!-- Ice Layer (Ice Cubes inside glass) -->
+                                <div class="ice-layer" id="ice-layer"></div>
+
+                                <!-- Coffee Fill Layer -->
+                                <div class="fill-layer coffee-fill" id="coffee-fill">
+                                    <div class="wave"></div>
+                                </div>
+
+                                <!-- Milk Fill Layer (Blended Mix) -->
+                                <div class="fill-layer milk-fill" id="milk-fill">
+                                    <div class="wave"></div>
+                                </div>
+
+                                <!-- Sugar Particles Layer -->
+                                <div class="sugar-layer" id="sugar-layer"></div>
+
+                                <!-- Whipped Cream Top Layer -->
+                                <div class="cream-layer" id="cream-layer"></div>
+
+                                <!-- Glass Reflection Highlights -->
+                                <div class="glass-shine"></div>
+                                <div class="glass-rim"></div>
+                            </div>
+
+                            <div class="glass-coaster"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Dynamic Recipe & Tasting Notes Panel -->
+                    <div class="builder-panel">
+                        <div class="recipe-card">
+                            <span class="panel-tag">RECIPE COMPOSITION</span>
+                            <h4 class="recipe-title" id="recipe-title">EMPTY GLASS</h4>
+                            <p class="recipe-desc" id="recipe-desc">
+                                Select an ingredient from the left control panel to begin crafting your bespoke beverage.
+                            </p>
+                            
+                            <div class="recipe-stats">
+                                <div class="stat-row">
+                                    <span>TEMPERATURE:</span>
+                                    <strong id="stat-temp">ROOM TEMP</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>INTENSITY:</span>
+                                    <strong id="stat-intensity">0 / 5</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>PROFILE:</span>
+                                    <strong id="stat-profile">UNBALANCED</strong>
+                                </div>
+                            </div>
+
+                            <div class="recipe-active-list">
+                                <span class="list-head">ACTIVE LAYERS:</span>
+                                <ul class="active-tags-list" id="active-tags">
+                                    <li class="empty-tag">No ingredients added yet</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 05 — TAKE IT SLOW (LIFESTYLE COFFEE SCENE)
+             =================================================================== -->
+        <section class="experience-section section-padding" id="experience">
+            <div class="container">
+                
+                <div class="experience-banner reveal-scale" data-cursor-view>
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1800&auto=format&fit=crop" 
+                         alt="Sunlit coffee table near window in morning light" 
+                         class="exp-banner-img"
+                         loading="lazy">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-text">
+                        <span class="banner-sublabel">AURELIS MOMENT</span>
+                        <h2 class="banner-heading">TAKE IT SLOW.</h2>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 06 — BRAND PHILOSOPHY
+             =================================================================== -->
+        <section class="philosophy-section section-padding" id="philosophy">
+            <div class="container text-center">
+                <div class="philosophy-box reveal-up">
+                    <span class="section-label">OUR CREED</span>
+                    <h2 class="philosophy-heading">
+                        GOOD COFFEE<br>
+                        <em>TAKES TIME.</em>
+                    </h2>
+                    <p class="philosophy-subtext">
+                        We believe the best moments are rarely rushed. Every roast, grind, and extraction is executed with patient intention.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================================================
+             SECTION 07 — FINAL CTA (LIGHT SAND BACKGROUND)
+             =================================================================== -->
+        <section class="cta-section" id="cta">
+            <div class="cta-container container">
+                <div class="cta-grid">
+                    
+                    <!-- Left: Typography & CTA -->
+                    <div class="cta-content reveal-up">
+                        <span class="cta-sublabel">MAKE TIME FOR COFFEE</span>
+                        <h2 class="cta-heading">
+                            MAKE TIME<br>
+                            <em>FOR COFFEE.</em>
+                        </h2>
+                        <p class="cta-desc">
+                            Experience the Noiré coffee atelier. Visit our studio or order fresh single-origin roasts delivered to your door.
+                        </p>
+                        <div class="cta-btn-box">
+                            <a href="#builder" class="btn-hero-cta btn-cta-large">
+                                <span class="btn-text">DISCOVER NOIRÉ</span>
+                                <svg class="btn-arrow" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Roasted Beans Texture Visual -->
+                    <div class="cta-visual reveal-scale" data-delay="200" data-cursor-view>
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1200&auto=format&fit=crop" 
+                             alt="Roasted coffee beans texture on light stone surface" 
+                             class="cta-img"
+                             loading="lazy">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Light Cream Palette) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand-col">
+                    <a href="#" class="footer-logo">NOIRÉ</a>
+                    <span class="footer-tagline">COFFEE, CRAFTED SLOWLY.</span>
+                    <p class="footer-bio">
+                        Single-origin wood-fired coffee studio. Roasted daily for connoisseurs of time.
+                    </p>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">NAVIGATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="#story">Story</a></li>
+                        <li><a href="#menu">Signatures</a></li>
+                        <li><a href="#builder">Build Cup</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4 class="footer-col-title">ATELIER</h4>
+                    <ul class="footer-links">
+                        <li><a href="#cta">Geneva Studio</a></li>
+                        <li><a href="#cta">Roastery Tours</a></li>
+                        <li><a href="#cta">Subscriptions</a></li>
+                        <li><a href="#cta">Private Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social-col">
+                    <h4 class="footer-col-title">CONNECT</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Noire Instagram">INSTAGRAM</a>
+                        <a href="#" class="social-link" aria-label="Noire Pinterest">PINTEREST</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright-text">
+                    &copy; 2026 NOIRÉ COFFEE STUDIO. All Rights Reserved. Designed for moments worth remembering.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="sep">•</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
