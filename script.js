@@ -1,6 +1,6 @@
 /**
- * MORROW COFFEE — EDITORIAL COFFEE STUDIO
- * Vanilla JavaScript Engine — Custom Cursor, Interactive Animated Hero Poster, Parallax Engine, Cup Builder
+ * K-afe — LIGHT LUXURY COFFEE EDITORIAL DESIGN SYSTEM
+ * Vanilla JavaScript Engine — Custom Cursor, Hero Parallax, Scroll Reveal, Interactive Cup Builder
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouseY = 0;
     let followerX = 0;
     let followerY = 0;
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth < 768);
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
     if (!isTouchDevice && cursorDot && cursorFollower) {
         window.addEventListener('mousemove', (e) => {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCursor();
 
         // Cursor Hover Effects for Links & Buttons
-        const hoverTargets = document.querySelectorAll('a, button, .stage-item, .menu-item');
+        const hoverTargets = document.querySelectorAll('a, button, .stage-item');
         hoverTargets.forEach(target => {
             target.addEventListener('mouseenter', () => {
                 document.body.classList.add('cursor-active');
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Cursor "EXPLORE" Mode for Visual Frames
+        // Cursor "EXPLORE" Mode for Imagery
         const viewTargets = document.querySelectorAll('[data-cursor-view]');
         viewTargets.forEach(target => {
             target.addEventListener('mouseenter', () => {
@@ -139,100 +139,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ------------------------------------------------------------------------
-       5. HERO MOUSE PARALLAX & SCROLL MOTION ENGINE
+       5. HERO IMAGE SCROLL PARALLAX (1 -> 0.95 Scale Effect)
        ------------------------------------------------------------------------ */
+    const heroImg = document.getElementById('hero-img');
     const heroSection = document.getElementById('hero');
-    const coffeeCupWrap = document.getElementById('coffee-cup-wrap');
-    const heroBgText = document.getElementById('hero-bg-text');
-    const heroSplash = document.getElementById('hero-splash');
-    const floatingBeans = document.querySelectorAll('.coffee-bean');
-    const heroContent = document.querySelector('.hero-content');
 
-    // Mouse Parallax Engine (Desktop Only)
-    let rawMouseX = 0;
-    let rawMouseY = 0;
-    let targetParallaxX = 0;
-    let targetParallaxY = 0;
-    let currentParallaxX = 0;
-    let currentParallaxY = 0;
+    if (heroImg && heroSection && !isTouchDevice) {
+        let ticking = false;
 
-    if (heroSection && !isTouchDevice) {
-        window.addEventListener('mousemove', (e) => {
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            rawMouseX = (e.clientX - centerX) / centerX; // Normalize to -1 -> +1
-            rawMouseY = (e.clientY - centerY) / centerY;
-            
-            targetParallaxX = rawMouseX;
-            targetParallaxY = rawMouseY;
-        });
-
-        function renderHeroMouseParallax() {
-            // Smooth LERP
-            currentParallaxX += (targetParallaxX - currentParallaxX) * 0.08;
-            currentParallaxY += (targetParallaxY - currentParallaxY) * 0.08;
-
-            const cupX = currentParallaxX * 8; // Max 8px shift for cup
-            const cupY = currentParallaxY * 8;
-            const bgX = currentParallaxX * -4; // Max -4px inverse shift for background text
-            const bgY = currentParallaxY * -4;
-
-            if (coffeeCupWrap) {
-                coffeeCupWrap.style.transform = `translate3d(${cupX}px, ${cupY}px, 0)`;
-            }
-
-            if (heroBgText) {
-                const isMobile = window.innerWidth <= 1024;
-                const baseTransform = isMobile ? 'translate(-50%, -50%)' : 'translateY(-50%)';
-                heroBgText.style.transform = `${baseTransform} translate3d(${bgX}px, ${bgY}px, 0)`;
-            }
-
-            if (heroSplash) {
-                heroSplash.style.transform = `translate(-50%, -50%) translate3d(${currentParallaxX * -6}px, ${currentParallaxY * -6}px, 0)`;
-            }
-
-            floatingBeans.forEach(bean => {
-                const factor = parseFloat(bean.getAttribute('data-parallax-factor')) || 1.5;
-                const beanX = currentParallaxX * (10 * (factor / 1.5)); // Max ~15px shift for beans
-                const beanY = currentParallaxY * (10 * (factor / 1.5));
-                bean.style.transform = `translate3d(${beanX}px, ${beanY}px, 0)`;
-            });
-
-            requestAnimationFrame(renderHeroMouseParallax);
-        }
-        renderHeroMouseParallax();
-    }
-
-    // Scroll-based Hero Response
-    if (heroSection) {
-        function renderHeroScrollResponse() {
+        function updateHeroParallax() {
             const scrollY = window.scrollY;
             const heroHeight = heroSection.offsetHeight;
 
             if (scrollY <= heroHeight) {
                 const progress = scrollY / heroHeight;
-
-                // Cup moves slightly upward on scroll
-                if (coffeeCupWrap && !isTouchDevice) {
-                    coffeeCupWrap.style.marginTop = `${-scrollY * 0.15}px`;
-                }
-
-                // MORROW background text fades on scroll
-                if (heroBgText) {
-                    const baseOpacity = window.innerWidth <= 1024 ? 0.05 : 0.06;
-                    heroBgText.style.opacity = `${Math.max(0, baseOpacity * (1 - progress * 1.5))}`;
-                }
-
-                // Hero text moves upward on scroll
-                if (heroContent && !isTouchDevice) {
-                    heroContent.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
-                    heroContent.style.opacity = `${Math.max(0, 1 - progress * 1.2)}`;
-                }
+                const scale = 1 - (progress * 0.05); // Scale from 1 down to 0.95
+                const translateY = scrollY * 0.15;
+                heroImg.style.transform = `translateY(${translateY}px) scale(${scale})`;
             }
+
+            ticking = false;
         }
 
         window.addEventListener('scroll', () => {
-            requestAnimationFrame(renderHeroScrollResponse);
+            if (!ticking) {
+                requestAnimationFrame(updateHeroParallax);
+                ticking = true;
+            }
         }, { passive: true });
     }
 
@@ -456,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (activeCount === 0) {
             recipeTitle.textContent = 'EMPTY GLASS';
-            recipeDesc.textContent = 'Select an ingredient from the left control panel to begin crafting your bespoke MORROW COFFEE beverage.';
+            recipeDesc.textContent = 'Select an ingredient from the left control panel to begin crafting your bespoke K-afe beverage.';
             statTemp.textContent = 'ROOM TEMP';
             statIntensity.textContent = '0 / 5';
             statProfile.textContent = 'UNBALANCED';
@@ -464,19 +397,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let name = 'MORROW SPECIAL';
+        let name = 'K-afe SPECIAL';
         let desc = 'Custom formulation layered with artisanal precision.';
         let temp = state.ice ? 'CHILLED 4°C' : 'WARM 85°C';
         let intensity = 1;
         let profile = 'BALANCED';
 
         if (state.coffee && state.milk && state.ice && state.cream) {
-            name = 'MORROW SIGNATURE LATTE';
+            name = 'K-afe SIGNATURE LATTE';
             desc = 'Rich espresso layered over chilled oat milk, ice, and velvet whipped cream.';
             intensity = 4;
             profile = 'CREAMY & BOLD';
         } else if (state.coffee && state.milk) {
-            name = 'VELVET MORROW LATTE';
+            name = 'VELVET K-afe LATTE';
             desc = 'Silky combination of double espresso and warm steamed oat milk.';
             intensity = 3;
             profile = 'SMOOTH & RICH';
@@ -540,4 +473,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
