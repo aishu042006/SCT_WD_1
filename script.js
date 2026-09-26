@@ -139,33 +139,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ------------------------------------------------------------------------
-       5. HERO IMAGE SCROLL PARALLAX (1 -> 0.95 Scale Effect)
+       5. HERO MOUSE PARALLAX & SCROLL MOTION ENGINE
        ------------------------------------------------------------------------ */
-    const heroImg = document.getElementById('hero-img');
     const heroSection = document.getElementById('hero');
+    const coffeeCupWrap = document.getElementById('hero-cup-wrap');
+    const heroBgCoco = document.getElementById('hero-bg-coco');
+    const heroSplash = document.getElementById('hero-splash');
+    const floatingBeans = document.querySelectorAll('.coffee-bean');
 
-    if (heroImg && heroSection && !isTouchDevice) {
-        let ticking = false;
+    // Mouse Parallax Engine (Desktop Only)
+    let rawMouseX = 0;
+    let rawMouseY = 0;
+    let targetParallaxX = 0;
+    let targetParallaxY = 0;
+    let currentParallaxX = 0;
+    let currentParallaxY = 0;
 
-        function updateHeroParallax() {
+    if (heroSection && !isTouchDevice) {
+        window.addEventListener('mousemove', (e) => {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            rawMouseX = (e.clientX - centerX) / centerX; // Range: -1 -> +1
+            rawMouseY = (e.clientY - centerY) / centerY;
+            
+            targetParallaxX = rawMouseX;
+            targetParallaxY = rawMouseY;
+        });
+
+        function renderHeroMouseParallax() {
+            // Smooth Lerp
+            currentParallaxX += (targetParallaxX - currentParallaxX) * 0.08;
+            currentParallaxY += (targetParallaxY - currentParallaxY) * 0.08;
+
+            const cupX = currentParallaxX * 8; // Central cup shift
+            const cupY = currentParallaxY * 8;
+            const bgX = currentParallaxX * -5; // Inverse shift for background CO-CO typography
+            const bgY = currentParallaxY * -5;
+
+            if (coffeeCupWrap) {
+                coffeeCupWrap.style.transform = `translate3d(${cupX}px, ${cupY}px, 0)`;
+            }
+
+            if (heroBgCoco) {
+                heroBgCoco.style.transform = `translate(-50%, -50%) translate3d(${bgX}px, ${bgY}px, 0)`;
+            }
+
+            if (heroSplash) {
+                heroSplash.style.transform = `translate(-50%, -50%) translate3d(${currentParallaxX * -7}px, ${currentParallaxY * -7}px, 0)`;
+            }
+
+            floatingBeans.forEach(bean => {
+                const factor = parseFloat(bean.getAttribute('data-parallax-factor')) || 1.5;
+                const beanX = currentParallaxX * (12 * (factor / 1.5));
+                const beanY = currentParallaxY * (12 * (factor / 1.5));
+                bean.style.transform = `translate3d(${beanX}px, ${beanY}px, 0)`;
+            });
+
+            requestAnimationFrame(renderHeroMouseParallax);
+        }
+        renderHeroMouseParallax();
+    }
+
+    // Scroll-based Hero Response
+    if (heroSection) {
+        function renderHeroScrollResponse() {
             const scrollY = window.scrollY;
             const heroHeight = heroSection.offsetHeight;
 
             if (scrollY <= heroHeight) {
                 const progress = scrollY / heroHeight;
-                const scale = 1 - (progress * 0.05); // Scale from 1 down to 0.95
-                const translateY = scrollY * 0.15;
-                heroImg.style.transform = `translateY(${translateY}px) scale(${scale})`;
-            }
 
-            ticking = false;
+                // Central cup moves slightly upward on scroll
+                if (coffeeCupWrap && !isTouchDevice) {
+                    coffeeCupWrap.style.marginTop = `${-scrollY * 0.12}px`;
+                }
+
+                // CO-CO background typography fades out on scroll
+                if (heroBgCoco) {
+                    heroBgCoco.style.opacity = `${Math.max(0, 0.12 * (1 - progress * 1.5))}`;
+                }
+            }
         }
 
         window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateHeroParallax);
-                ticking = true;
-            }
+            requestAnimationFrame(renderHeroScrollResponse);
         }, { passive: true });
     }
 
