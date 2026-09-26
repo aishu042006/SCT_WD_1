@@ -227,11 +227,23 @@ body.cursor-view-active .custom-cursor {
     justify-content: space-between;
 }
 
-/* Brand Logo — CO-CO coffee Lockup */
+/* Brand Logo — CO-CO coffee Lockup with Cup Icon */
 .brand-logo {
     display: inline-flex;
     align-items: center;
+    gap: 0.65rem;
     text-decoration: none;
+}
+
+.brand-cup-icon {
+    color: var(--text-primary);
+    flex-shrink: 0;
+    transition: transform 0.3s var(--ease-luxury), color 0.3s;
+}
+
+.brand-logo:hover .brand-cup-icon {
+    color: var(--accent-coffee);
+    transform: rotate(-8deg) scale(1.08);
 }
 
 .brand-coco-lockup {
