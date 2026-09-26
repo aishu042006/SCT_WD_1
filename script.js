@@ -140,8 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSection = document.getElementById('hero');
     const coffeeCupWrap = document.getElementById('hero-cup-wrap');
     const heroBgCoco = document.getElementById('hero-bg-coco');
-    const heroSplash = document.getElementById('hero-splash');
-    const floatingBeans = document.querySelectorAll('.coffee-bean');
+    const floatingBeans = document.querySelectorAll('.floating-bean');
 
     // Mouse Parallax Engine (Desktop Only)
     let rawMouseX = 0;
@@ -178,10 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (heroBgCoco) {
                 heroBgCoco.style.transform = `translate(-50%, -50%) translate3d(${bgX}px, ${bgY}px, 0)`;
-            }
-
-            if (heroSplash) {
-                heroSplash.style.transform = `translate(-50%, -50%) translate3d(${currentParallaxX * -7}px, ${currentParallaxY * -7}px, 0)`;
             }
 
             floatingBeans.forEach(bean => {

@@ -411,10 +411,13 @@ body.cursor-view-active .custom-cursor {
 /* --------------------------------------------------------------------------
    5. SECTION 01 — CENTRAL ANIMATED HERO (CO-CO BACKGROUND + FLOATING BEANS)
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   5. SECTION 01 — CENTRAL ANIMATED HERO (CO-CO BACKGROUND + FLOATING BEANS)
+   -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
-    min-height: 90vh;
-    padding-top: calc(var(--header-height) + 1rem);
+    min-height: 92vh;
+    padding-top: calc(var(--header-height) + 0.5rem);
     padding-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -423,27 +426,30 @@ body.cursor-view-active .custom-cursor {
     background-color: var(--bg-cream);
 }
 
-/* Large Background Typography Element (CO-CO) */
+/* 1. Large Background Typography (CO-CO) */
 .hero-bg-coco {
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-heading);
-    font-size: clamp(10rem, 25vw, 28rem);
+    font-size: clamp(8rem, 24vw, 26rem);
     font-weight: 300;
     letter-spacing: 0.12em;
-    color: var(--accent-coffee);
-    opacity: 0.12;
+    color: #70452C;
+    opacity: 0.22;
     white-space: nowrap;
     pointer-events: none;
     z-index: 1;
     user-select: none;
-    will-change: transform, opacity;
-    transition: opacity 0.4s;
+    line-height: 0.9;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* Far-Left Vertical Typography */
+/* 2. Far-Left Vertical Editorial Badge */
 .hero-vertical-text {
     position: absolute;
     top: 38%;
@@ -458,11 +464,13 @@ body.cursor-view-active .custom-cursor {
     z-index: 2;
 }
 
-/* Main Central Hero Scene (Centered Composition) */
-.hero-scene {
+/* 3. Central Stage (CO-CO + Central Cup + Floating Beans) */
+.hero-center-stage {
     position: relative;
     width: 100%;
-    height: 480px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    height: 420px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -470,199 +478,112 @@ body.cursor-view-active .custom-cursor {
     margin-top: 1rem;
 }
 
-/* Coffee Splash SVG Backdrop */
-.hero-splash-bg {
+/* Coffee Aura Glow */
+.hero-aura-shape {
     position: absolute;
-    width: 480px;
-    height: 480px;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239, 229, 213, 0.8) 0%, rgba(246, 241, 232, 0) 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 1;
-    animation: splashPulse 12s ease-in-out infinite alternate;
+    z-index: 2;
+    animation: auraPulse 8s ease-in-out infinite alternate;
 }
 
-.splash-svg {
-    width: 100%;
-    height: 100%;
+@keyframes auraPulse {
+    0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
 }
 
-@keyframes splashPulse {
-    0% { transform: translate(-50%, -50%) scale(0.95) rotate(0deg); opacity: 0.65; }
-    100% { transform: translate(-50%, -50%) scale(1.05) rotate(5deg); opacity: 0.9; }
-}
-
-/* Subtle Rising Coffee Steam */
-.hero-steam-layer {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 130px;
-    pointer-events: none;
-    z-index: 4;
-}
-
-.steam-line {
-    position: absolute;
-    bottom: 0;
-    width: 10px;
-    height: 70px;
-    background: linear-gradient(to top, rgba(239, 229, 213, 0.8), rgba(255, 253, 248, 0.6), transparent);
-    border-radius: 50%;
-    filter: blur(8px);
-    opacity: 0;
-}
-
-.steam-1 { left: 28%; animation: steamRise 4.5s ease-out infinite 0.2s; }
-.steam-2 { left: 50%; animation: steamRise 5.2s ease-out infinite 1.2s; }
-.steam-3 { left: 72%; animation: steamRise 4.8s ease-out infinite 2.2s; }
-
-@keyframes steamRise {
-    0% { transform: translateY(0) scaleX(1); opacity: 0; }
-    25% { opacity: 0.5; }
-    65% { opacity: 0.25; }
-    100% { transform: translateY(-80px) scaleX(2.5); opacity: 0; }
-}
-
-/* Central Isolated Ceramic Cup Foreground */
-.hero-cup-wrap {
+/* Central Cup Image Container */
+.hero-cup-main {
     position: relative;
-    z-index: 3;
+    z-index: 4;
     display: flex;
     align-items: center;
     justify-content: center;
     will-change: transform;
 }
 
-.hero-cup {
+.cup-image-box {
     position: relative;
-    animation: cupHover 5s ease-in-out infinite 0.8s;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(43, 33, 27, 0.16), 0 0 0 1px rgba(112, 69, 44, 0.15);
+    border: 8px solid #FFFDF8;
+    background-color: #F6F1E8;
+    animation: centralCupFloat 5s ease-in-out infinite;
 }
 
-.cup-svg {
-    display: block;
-    filter: drop-shadow(0 15px 35px rgba(43, 33, 27, 0.14));
+.central-cup-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.04) brightness(0.98);
 }
 
-@keyframes cupEnter {
-    0% { transform: translateY(45px) scale(0.92); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
+.cup-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    letter-spacing: 0.24em;
+    color: var(--accent-coffee);
+    background: rgba(255, 253, 248, 0.9);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+    white-space: nowrap;
+    border: 1px solid var(--border-subtle);
 }
 
-@keyframes cupHover {
+@keyframes centralCupFloat {
     0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(0.6deg); }
+    50% { transform: translateY(-12px) rotate(0.5deg); }
     100% { transform: translateY(0px) rotate(0deg); }
 }
 
-/* Floating Coffee Beans Layer (Layered Depth) */
-.hero-beans-layer {
+/* 4. Floating Coffee Beans Layer */
+.hero-beans-container {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 5;
 }
 
-.coffee-bean {
+.floating-bean {
     position: absolute;
     will-change: transform;
-    filter: drop-shadow(0 8px 16px rgba(43, 33, 27, 0.15));
-    transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: drop-shadow(0 8px 16px rgba(43, 33, 27, 0.16));
 }
 
-.bean-1 {
-    top: 8%;
-    left: 22%;
-    animation: floatBean1 6s ease-in-out infinite alternate;
-}
+.bean-pos-1 { top: 6%; left: 24%; animation: floatBean1 6s ease-in-out infinite alternate; }
+.bean-pos-2 { top: 10%; right: 26%; animation: floatBean2 7.5s ease-in-out infinite alternate 0.4s; }
+.bean-pos-3 { bottom: 8%; left: 22%; animation: floatBean3 8s ease-in-out infinite alternate 0.8s; }
+.bean-pos-4 { bottom: 12%; right: 22%; animation: floatBean4 6.8s ease-in-out infinite alternate 1.2s; }
+.bean-pos-5 { top: 42%; left: 16%; animation: floatBean5 7.2s ease-in-out infinite alternate 1.6s; }
+.bean-pos-6 { top: 46%; right: 16%; animation: floatBean6 6.5s ease-in-out infinite alternate 0.9s; }
 
-.bean-2 {
-    top: 12%;
-    right: 24%;
-    animation: floatBean2 7.5s ease-in-out infinite alternate 0.4s;
-}
+@keyframes floatBean1 { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-18px) rotate(20deg); } }
+@keyframes floatBean2 { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-22px) rotate(-24deg); } }
+@keyframes floatBean3 { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(16px) rotate(16deg); } }
+@keyframes floatBean4 { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-16px) rotate(-16deg); } }
+@keyframes floatBean5 { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(20px) rotate(28deg); } }
+@keyframes floatBean6 { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-14px) rotate(-20deg); } }
 
-.bean-3 {
-    bottom: 12%;
-    left: 18%;
-    animation: floatBean3 8s ease-in-out infinite alternate 0.8s;
-}
-
-.bean-4 {
-    bottom: 15%;
-    right: 20%;
-    animation: floatBean4 6.8s ease-in-out infinite alternate 1.2s;
-}
-
-.bean-5 {
-    top: 44%;
-    right: 12%;
-    animation: floatBean5 7.2s ease-in-out infinite alternate 1.6s;
-}
-
-.bean-6 {
-    top: 48%;
-    left: 14%;
-    animation: floatBean6 6.5s ease-in-out infinite alternate 0.9s;
-}
-
-@keyframes floatBean1 {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-16px) rotate(18deg); }
-}
-@keyframes floatBean2 {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-20px) rotate(-22deg); }
-}
-@keyframes floatBean3 {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(14px) rotate(15deg); }
-}
-@keyframes floatBean4 {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-14px) rotate(-14deg); }
-}
-@keyframes floatBean5 {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(18px) rotate(25deg); }
-}
-@keyframes floatBean6 {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-12px) rotate(-18deg); }
-}
-
-/* Editorial Scene Tag */
-.hero-scene-tag {
-    position: absolute;
-    bottom: 4%;
-    right: 18%;
-    font-size: 0.65rem;
-    letter-spacing: 0.28em;
-    color: var(--accent-coffee);
-    text-transform: uppercase;
-    font-weight: 600;
-    background: rgba(255, 253, 248, 0.8);
-    padding: 0.35rem 0.9rem;
-    border-radius: 20px;
-    border: 1px solid var(--border-subtle);
-    backdrop-filter: blur(4px);
-    z-index: 6;
-}
-
-/* Bottom Hero Container Stack */
-.hero-container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 2.5rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+/* 5. Bottom Editorial Content Stack */
+.hero-bottom-info {
     position: relative;
-    z-index: 4;
+    z-index: 6;
+    width: 100%;
 }
 
 .hero-content {
@@ -673,7 +594,7 @@ body.cursor-view-active .custom-cursor {
 }
 
 .hero-brand-label {
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
 }
 
 .label-code {
@@ -684,9 +605,9 @@ body.cursor-view-active .custom-cursor {
     text-transform: uppercase;
 }
 
-/* Filled Headline Lockup */
+/* Headline Lockup */
 .hero-headline {
-    font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+    font-size: clamp(3rem, 5vw, 5.25rem);
     line-height: 0.94;
     margin-bottom: 1.25rem;
     text-transform: uppercase;
@@ -717,7 +638,7 @@ body.cursor-view-active .custom-cursor {
     line-height: 1.6;
 }
 
-/* Refined Primary CTA Button */
+/* Primary CTA Button */
 .btn-hero-cta {
     display: inline-flex;
     align-items: center;
