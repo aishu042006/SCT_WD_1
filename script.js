@@ -3,14 +3,10 @@
  * Vanilla JavaScript Engine — Custom Cursor, Hero Parallax, Scroll Reveal, Interactive Cup Builder
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.body.classList.add('loaded');
 
-    /* ------------------------------------------------------------------------
-       1. PAGE LOAD SEQUENCER TRIGGER
-       ------------------------------------------------------------------------ */
-    setTimeout(() => {
-        document.body.classList.add('loaded');
-    }, 100);
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
 
 
     /* ------------------------------------------------------------------------
