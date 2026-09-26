@@ -1240,13 +1240,16 @@ body.cursor-view-active .custom-cursor {
 
 .experience-banner {
     position: relative;
-    height: 70vh;
-    min-height: 520px;
+    height: 60vh;
+    min-height: 440px;
+    width: 100%;
+    max-width: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 30px 60px rgba(43, 33, 27, 0.08);
+    border-radius: 4px;
 }
 
 .exp-banner-img {
@@ -1264,7 +1267,7 @@ body.cursor-view-active .custom-cursor {
 .banner-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(43, 33, 27, 0.2) 0%, rgba(43, 33, 27, 0.55) 90%);
+    background: radial-gradient(circle at center, rgba(43, 33, 27, 0.25) 0%, rgba(43, 33, 27, 0.65) 90%);
 }
 
 .banner-text {
@@ -1272,6 +1275,10 @@ body.cursor-view-active .custom-cursor {
     z-index: 2;
     text-align: center;
     color: var(--bg-cream);
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
 }
 
 .banner-sublabel {
@@ -1284,11 +1291,13 @@ body.cursor-view-active .custom-cursor {
 }
 
 .banner-heading {
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    line-height: 0.9;
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    line-height: 1.05;
     letter-spacing: 0.02em;
     color: var(--bg-cream);
     text-transform: uppercase;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 
@@ -1571,38 +1580,37 @@ body.loaded .hero-anim-bean6 { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
 @media (max-width: 768px) {
+    .container { padding: 0 1.25rem; }
     .nav-links, .btn-nav-order { display: none; }
     .hamburger-toggle { display: flex; }
-    .section-padding { padding: 90px 0; }
-    .hero-headline { font-size: 3.75rem; }
-    .hero-scene { height: 340px; }
-    .cup-svg { width: 240px; height: 260px; }
-    .hero-splash-bg { width: 310px; height: 310px; }
-    .hero-bg-coco { font-size: 10rem; }
-    .coffee-bean { transform: scale(0.85); }
-    .hero-scene-tag { right: 8%; bottom: 2%; }
+    .section-padding { padding: 80px 0; }
+    .hero-cup-standalone { width: 250px; height: 250px; }
+    .hero-bg-coco-giant { font-size: clamp(6rem, 20vw, 12rem); }
     .menu-item { grid-template-columns: 1fr; }
     .menu-item-media { height: 200px; }
+    .experience-banner { height: 48vh; min-height: 340px; }
+    .banner-heading { font-size: clamp(1.8rem, 7.5vw, 3.2rem); }
+    .banner-text { padding: 0 1rem; }
     .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
 
 @media (max-width: 480px) {
-    .hero-headline { font-size: 3.0rem; }
+    .container { padding: 0 1rem; }
     .btn-hero-cta { width: 100%; justify-content: center; }
-    .hero-scene { height: 300px; }
-    .cup-svg { width: 200px; height: 215px; }
-    .hero-splash-bg { width: 260px; height: 260px; }
-    .hero-bg-coco { font-size: 7.5rem; }
-    .builder-workspace { padding: 1.25rem; }
+    .hero-cup-standalone { width: 210px; height: 210px; }
+    .hero-bg-coco-giant { font-size: clamp(4.5rem, 18vw, 8rem); }
+    .builder-workspace { padding: 1.25rem 1rem; }
+    .experience-banner { height: 42vh; min-height: 280px; }
+    .banner-heading { font-size: clamp(1.5rem, 6.5vw, 2.4rem); }
+    .banner-sublabel { font-size: 0.65rem; letter-spacing: 0.22em; }
     .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 @media (max-width: 375px) {
-    .brand-text { font-size: 1.5rem; }
-    .hero-headline { font-size: 2.5rem; }
-    .hero-subtext { font-size: 0.98rem; }
-    .hero-scene { height: 270px; }
-    .cup-svg { width: 180px; height: 195px; }
+    .brand-title-coco { font-size: 1.3rem; }
+    .brand-sub-coffee { font-size: 1rem; }
+    .hero-cup-standalone { width: 180px; height: 180px; }
+    .banner-heading { font-size: clamp(1.35rem, 6vw, 2rem); }
 }
 
 
