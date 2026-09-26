@@ -1,31 +1,31 @@
 /* ==========================================================================
-   NOIRÉ — LIGHT LUXURY COFFEE EDITORIAL DESIGN SYSTEM
-   CSS3 Stylesheet — Pure Vanilla, Responsive, Light Warm Palette
+   K-afe — LIGHT LUXURY COFFEE EDITORIAL DESIGN SYSTEM
+   CSS3 Stylesheet — Pure Vanilla, Responsive, Warm Neutral Palette
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. DESIGN SYSTEM & CSS VARIABLES
    -------------------------------------------------------------------------- */
 :root {
-    /* New Light Coffee Color Palette */
+    /* Warm Light Neutral Palette */
     --bg-primary: #F6F1E8;
     --bg-secondary: #EFE5D5;
     --bg-cream: #FFFDF8;
     --bg-card: #FFFDF8;
     --bg-elevated: #F5EBDC;
-    --bg-accent-section: #E5D4BF;
+    --bg-accent-section: #E9DDCC;
     
     --text-primary: #2B211B;
     --text-muted: #75675B;
     --text-white: #FFFFFF;
     
-    --accent-coffee: #7A4B2A;
-    --accent-caramel: #B98252;
+    --accent-coffee: #70452C;
+    --accent-caramel: #A9784E;
     --accent-brown-soft: #9A7354;
     
     --border-subtle: rgba(43, 33, 27, 0.08);
     --border-medium: rgba(43, 33, 27, 0.16);
-    --border-coffee: rgba(122, 75, 42, 0.3);
+    --border-coffee: rgba(112, 69, 44, 0.3);
 
     /* Typography */
     --font-heading: 'Cormorant Garamond', Georgia, serif;
@@ -145,7 +145,7 @@ img {
     left: 0;
     width: 38px;
     height: 38px;
-    border: 1px solid rgba(122, 75, 42, 0.4);
+    border: 1px solid rgba(112, 69, 44, 0.4);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
@@ -205,7 +205,7 @@ body.cursor-view-active .custom-cursor {
     width: 100%;
     height: var(--header-height);
     z-index: 1000;
-    background-color: rgba(246, 241, 232, 0.85);
+    background-color: rgba(246, 241, 232, 0.88);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
@@ -227,17 +227,34 @@ body.cursor-view-active .custom-cursor {
     justify-content: space-between;
 }
 
+/* Brand Logo with Inline Hand-Holding-Cup Logo Mark */
 .brand-logo {
-    font-family: var(--font-heading);
-    font-size: 1.85rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
     color: var(--text-primary);
-    text-transform: uppercase;
     transition: color 0.3s;
 }
 
-.brand-logo:hover {
+.logo-mark {
+    color: var(--accent-coffee);
+    flex-shrink: 0;
+    transition: transform 0.3s var(--ease-luxury);
+}
+
+.brand-logo:hover .logo-mark {
+    transform: rotate(-8deg) scale(1.05);
+}
+
+.brand-text {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.brand-logo:hover .brand-text {
     color: var(--accent-coffee);
 }
 
@@ -302,7 +319,6 @@ body.cursor-view-active .custom-cursor {
     transform: translateX(4px);
 }
 
-/* Mobile Hamburger */
 .hamburger-toggle {
     display: none;
     flex-direction: column;
@@ -390,13 +406,13 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   5. SECTION 01 — EDITORIAL HERO (SPLIT 55% / 45%)
+   5. SECTION 01 — BALANCED EDITORIAL HERO (88VH HEIGHT)
    -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
-    min-height: 100vh;
-    padding-top: calc(var(--header-height) + 1rem);
-    padding-bottom: 2.5rem;
+    min-height: 88vh;
+    padding-top: calc(var(--header-height) + 1.25rem);
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -404,31 +420,47 @@ body.cursor-view-active .custom-cursor {
     background-color: var(--bg-primary);
 }
 
-/* Floating Beans Accent */
-.floating-beans-container {
+/* Detail 1: Coffee Bean Trail */
+.hero-bean-trail {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 1;
 }
 
-.coffee-bean {
+.trail-bean {
     position: absolute;
-    width: 22px;
-    height: 13px;
+    width: 18px;
+    height: 11px;
     background: var(--accent-coffee);
     border-radius: 50%;
-    opacity: 0.25;
+    opacity: 0.22;
 }
 
-.bean-1 { top: 18%; left: 8%; transform: rotate(-25deg); animation: floatBean 8s ease-in-out infinite; }
-.bean-2 { top: 70%; left: 45%; transform: rotate(40deg); animation: floatBean 10s ease-in-out infinite 1s; }
-.bean-3 { top: 25%; right: 5%; transform: rotate(15deg); animation: floatBean 9s ease-in-out infinite 2s; }
+.bean-1 { top: 22%; left: 6%; transform: rotate(-25deg); animation: floatBean 8s ease-in-out infinite; }
+.bean-2 { top: 62%; left: 32%; transform: rotate(40deg); animation: floatBean 10s ease-in-out infinite 1s; }
+.bean-3 { top: 35%; right: 48%; transform: rotate(15deg); animation: floatBean 9s ease-in-out infinite 2s; }
+.bean-4 { top: 82%; left: 14%; transform: rotate(-10deg); animation: floatBean 7.5s ease-in-out infinite 0.5s; }
 
 @keyframes floatBean {
     0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(8deg); }
+    50% { transform: translateY(-10px) rotate(6deg); }
     100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Detail 2: Far-Left Vertical Typography */
+.hero-vertical-text {
+    position: absolute;
+    top: 38%;
+    left: 1.25rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
+    color: var(--accent-brown-soft);
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .hero-container {
@@ -453,7 +485,7 @@ body.cursor-view-active .custom-cursor {
 }
 
 .hero-brand-label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .label-code {
@@ -464,10 +496,11 @@ body.cursor-view-active .custom-cursor {
     text-transform: uppercase;
 }
 
+/* Filled Headline Lockup */
 .hero-headline {
-    font-size: clamp(4.25rem, 8vw, 7.75rem);
+    font-size: clamp(4rem, 7.5vw, 7.25rem);
     line-height: 0.92;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     text-transform: uppercase;
     letter-spacing: -0.01em;
 }
@@ -488,21 +521,22 @@ body.cursor-view-active .custom-cursor {
 }
 
 .hero-subtext {
-    font-size: 1.15rem;
+    font-size: 1.125rem;
     max-width: 440px;
     color: var(--text-muted);
-    margin-bottom: 2.75rem;
+    margin-bottom: 2.25rem;
     font-weight: 300;
     line-height: 1.6;
 }
 
+/* Refined Primary CTA Button */
 .btn-hero-cta {
     display: inline-flex;
     align-items: center;
     gap: 1.25rem;
-    padding: 1.15rem 2.4rem;
+    padding: 1.1rem 2.4rem;
     border: 1px solid var(--accent-coffee);
-    background: transparent;
+    background: var(--bg-cream);
     color: var(--text-primary);
     font-size: 0.78rem;
     font-weight: 600;
@@ -510,7 +544,8 @@ body.cursor-view-active .custom-cursor {
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.4s var(--transition-smooth), color 0.4s var(--transition-smooth);
+    transition: border-color 0.4s var(--transition-smooth), color 0.4s var(--transition-smooth), background-color 0.4s;
+    box-shadow: 0 4px 15px rgba(112, 69, 44, 0.04);
 }
 
 .btn-hero-cta::before {
@@ -547,13 +582,13 @@ body.cursor-view-active .custom-cursor {
     transform: translateX(6px);
 }
 
-/* Bottom-Left Floating Editorial Callout */
+/* Detail 3: Editorial Callout Number (01 — RITUAL) */
 .hero-detail-callout {
-    margin-top: 3.5rem;
+    margin-top: 2.75rem;
     display: flex;
     align-items: flex-start;
     gap: 1.25rem;
-    padding-top: 1.5rem;
+    padding-top: 1.25rem;
     border-top: 1px solid var(--border-medium);
     max-width: 380px;
 }
@@ -579,7 +614,7 @@ body.cursor-view-active .custom-cursor {
     color: var(--text-muted);
 }
 
-/* Right Column Visual Framing */
+/* Right Column Visual & Decorative Connecting Line */
 .hero-visual {
     position: relative;
     display: flex;
@@ -587,13 +622,23 @@ body.cursor-view-active .custom-cursor {
     align-items: center;
 }
 
+.hero-connecting-line {
+    position: absolute;
+    left: -140px;
+    top: 45%;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
 .hero-image-frame {
     position: relative;
     width: 100%;
-    max-width: 520px;
-    height: 580px;
+    max-width: 500px;
+    height: 540px;
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(43, 33, 27, 0.08);
+    border-radius: 4px;
+    box-shadow: 0 25px 50px rgba(43, 33, 27, 0.08);
 }
 
 .hero-img {
@@ -608,7 +653,6 @@ body.cursor-view-active .custom-cursor {
     transform: scale(1.04);
 }
 
-/* Steam Animation */
 .steam-container {
     position: absolute;
     top: 10%;
@@ -656,7 +700,7 @@ body.cursor-view-active .custom-cursor {
 .hero-scroll-indicator {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     z-index: 2;
 }
 
@@ -664,7 +708,7 @@ body.cursor-view-active .custom-cursor {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
 }
 
 .scroll-label {
@@ -676,7 +720,7 @@ body.cursor-view-active .custom-cursor {
 
 .scroll-track {
     width: 1px;
-    height: 38px;
+    height: 34px;
     background-color: var(--border-medium);
     position: relative;
     overflow: hidden;
@@ -700,7 +744,7 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   6. SECTION 02 — THE STORY (BACKGROUND #EFE5D5)
+   6. SECTION 02 — THE STORY
    -------------------------------------------------------------------------- */
 .story-section {
     background-color: var(--bg-secondary);
@@ -809,7 +853,7 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   7. SECTION 03 — SIGNATURES MENU (BACKGROUND #F6F1E8)
+   7. SECTION 03 — SIGNATURES MENU
    -------------------------------------------------------------------------- */
 .menu-section {
     background-color: var(--bg-primary);
@@ -958,10 +1002,10 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   8. SECTION 04 — BUILD YOUR PERFECT CUP (LIGHT INTERACTIVE UI)
+   8. SECTION 04 — BUILD YOUR PERFECT CUP
    -------------------------------------------------------------------------- */
 .builder-section {
-    background-color: #E8D8C5;
+    background-color: var(--bg-accent-section);
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
 }
@@ -1014,7 +1058,7 @@ body.cursor-view-active .custom-cursor {
 
 .btn-ingredient.added {
     border-color: var(--accent-coffee);
-    background: rgba(122, 75, 42, 0.1);
+    background: rgba(112, 69, 44, 0.1);
 }
 
 .ing-icon { font-size: 1.1rem; }
@@ -1033,10 +1077,10 @@ body.cursor-view-active .custom-cursor {
 }
 
 .btn-reset-cup:hover {
-    background: rgba(122, 75, 42, 0.1);
+    background: rgba(112, 69, 44, 0.1);
 }
 
-/* Center Interactive Glass Canvas */
+/* Glass Canvas */
 .builder-canvas {
     display: flex;
     justify-content: center;
@@ -1076,14 +1120,13 @@ body.cursor-view-active .custom-cursor {
     100% { height: 160px; }
 }
 
-/* Clear Glass Container */
 .glass-container {
     position: relative;
     width: 170px;
     height: 300px;
-    border-left: 3px solid rgba(122, 75, 42, 0.35);
-    border-right: 3px solid rgba(122, 75, 42, 0.35);
-    border-bottom: 5px solid rgba(122, 75, 42, 0.45);
+    border-left: 3px solid rgba(112, 69, 44, 0.35);
+    border-right: 3px solid rgba(112, 69, 44, 0.35);
+    border-bottom: 5px solid rgba(112, 69, 44, 0.45);
     border-radius: 0 0 16px 16px;
     overflow: hidden;
     background: rgba(255, 253, 248, 0.4);
@@ -1111,7 +1154,7 @@ body.cursor-view-active .custom-cursor {
     width: 100%;
     height: 6px;
     border-radius: 50%;
-    border: 1px solid rgba(122, 75, 42, 0.3);
+    border: 1px solid rgba(112, 69, 44, 0.3);
     pointer-events: none;
     z-index: 9;
 }
@@ -1124,7 +1167,6 @@ body.cursor-view-active .custom-cursor {
     margin-top: 4px;
 }
 
-/* Liquid Fill Animations */
 .fill-layer {
     position: absolute;
     bottom: 0;
@@ -1224,7 +1266,7 @@ body.cursor-view-active .custom-cursor {
     opacity: 0;
     transform: translateY(-20px) scale(0.8);
     transition: all 0.6s var(--ease-luxury);
-    box-shadow: inset 0 -4px 8px rgba(185, 130, 82, 0.2);
+    box-shadow: inset 0 -4px 8px rgba(169, 120, 78, 0.2);
 }
 
 .cream-layer.active {
@@ -1314,7 +1356,7 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   9. SECTION 05 — TAKE IT SLOW (LIFESTYLE BANNER)
+   9. SECTION 05 — TAKE IT SLOW
    -------------------------------------------------------------------------- */
 .experience-section {
     background-color: var(--bg-primary);
@@ -1375,7 +1417,7 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   10. SECTION 06 — BRAND PHILOSOPHY (BACKGROUND #EFE5D5)
+   10. SECTION 06 — BRAND PHILOSOPHY
    -------------------------------------------------------------------------- */
 .philosophy-section {
     background-color: var(--bg-secondary);
@@ -1406,7 +1448,7 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   11. SECTION 07 — FINAL CTA (BACKGROUND #E5D4BF)
+   11. SECTION 07 — FINAL CTA
    -------------------------------------------------------------------------- */
 .cta-section {
     background-color: var(--bg-accent-section);
@@ -1463,7 +1505,7 @@ body.cursor-view-active .custom-cursor {
 
 
 /* --------------------------------------------------------------------------
-   12. FOOTER (LIGHT CREAM PALETTE)
+   12. FOOTER
    -------------------------------------------------------------------------- */
 .footer {
     background-color: var(--bg-secondary);
@@ -1480,12 +1522,18 @@ body.cursor-view-active .custom-cursor {
 }
 
 .footer-logo {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    letter-spacing: 0.25em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--text-primary);
-    display: block;
     margin-bottom: 0.25rem;
+}
+
+.footer-logo .brand-text {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
 }
 
 .footer-tagline {
@@ -1604,8 +1652,9 @@ body.loaded .hero-anim-4 { opacity: 1; transform: translateY(0); transition-dela
 body.loaded .hero-anim-5 { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
 body.loaded .hero-anim-6 { opacity: 1; transform: translateY(0); transition-delay: 0.95s; }
 body.loaded .hero-anim-7 { opacity: 1; transform: translateY(0); transition-delay: 1.1s; }
+body.loaded .hero-anim-8 { opacity: 1; transform: translateY(0); transition-delay: 1.25s; }
 body.loaded .hero-anim-visual { opacity: 1; transform: scale(1); transition-delay: 0.4s; }
-body.loaded .hero-anim-scroll { opacity: 1; transform: translateY(0); transition-delay: 1.3s; }
+body.loaded .hero-anim-scroll { opacity: 1; transform: translateY(0); transition-delay: 1.4s; }
 
 
 /* --------------------------------------------------------------------------
@@ -1620,12 +1669,14 @@ body.loaded .hero-anim-scroll { opacity: 1; transform: translateY(0); transition
     .hero-headline { font-size: 6.2rem; }
     .builder-workspace { grid-template-columns: 240px 1fr 280px; gap: 2rem; padding: 2rem; }
     .menu-grid { gap: 2rem; }
+    .hero-connecting-line { display: none; }
 }
 
 @media (max-width: 1024px) {
-    .hero-container { grid-template-columns: 1fr; gap: 3.5rem; }
+    .hero-container { grid-template-columns: 1fr; gap: 3rem; }
     .hero-content { align-items: flex-start; padding-right: 0; }
-    .hero-image-frame { max-width: 100%; height: 480px; }
+    .hero-image-frame { max-width: 100%; height: 460px; }
+    .hero-vertical-text { display: none; }
     .story-grid { grid-template-columns: 1fr; gap: 3.5rem; }
     .menu-grid { grid-template-columns: 1fr; }
     .builder-workspace { grid-template-columns: 1fr; gap: 3rem; }
@@ -1652,7 +1703,7 @@ body.loaded .hero-anim-scroll { opacity: 1; transform: translateY(0); transition
 }
 
 @media (max-width: 375px) {
-    .brand-logo { font-size: 1.4rem; }
+    .brand-logo .brand-text { font-size: 1.4rem; }
     .hero-headline { font-size: 2.75rem; }
 }
 
@@ -1667,6 +1718,6 @@ body.loaded .hero-anim-scroll { opacity: 1; transform: translateY(0); transition
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    .coffee-bean, .steam-particle { animation: none !important; }
+    .trail-bean, .steam-particle { animation: none !important; }
     .reveal-up, .reveal-fade, .reveal-scale, .hero-anim { opacity: 1 !important; transform: none !important; }
 }
