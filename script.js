@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (activeCount === 0) {
             recipeTitle.textContent = 'EMPTY GLASS';
-            recipeDesc.textContent = 'Select an ingredient from the left control panel to begin crafting your bespoke K-afe beverage.';
+            recipeDesc.textContent = 'Select an ingredient from the left control panel to begin crafting your bespoke CO-CO beverage.';
             statTemp.textContent = 'ROOM TEMP';
             statIntensity.textContent = '0 / 5';
             statProfile.textContent = 'UNBALANCED';
@@ -445,19 +445,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let name = 'K-afe SPECIAL';
+        let name = 'CO-CO SPECIAL';
         let desc = 'Custom formulation layered with artisanal precision.';
         let temp = state.ice ? 'CHILLED 4°C' : 'WARM 85°C';
         let intensity = 1;
         let profile = 'BALANCED';
 
         if (state.coffee && state.milk && state.ice && state.cream) {
-            name = 'K-afe SIGNATURE LATTE';
+            name = 'CO-CO SIGNATURE LATTE';
             desc = 'Rich espresso layered over chilled oat milk, ice, and velvet whipped cream.';
             intensity = 4;
             profile = 'CREAMY & BOLD';
         } else if (state.coffee && state.milk) {
-            name = 'VELVET K-afe LATTE';
+            name = 'VELVET CO-CO LATTE';
             desc = 'Silky combination of double espresso and warm steamed oat milk.';
             intensity = 3;
             profile = 'SMOOTH & RICH';

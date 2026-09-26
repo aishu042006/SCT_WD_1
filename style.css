@@ -227,34 +227,44 @@ body.cursor-view-active .custom-cursor {
     justify-content: space-between;
 }
 
-/* Brand Logo with Inline Hand-Holding-Cup Logo Mark */
+/* Brand Logo — CO-CO coffee Lockup */
 .brand-logo {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
+    text-decoration: none;
+}
+
+.brand-coco-lockup {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.88;
+}
+
+.brand-title-coco {
+    font-family: var(--font-body), sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     color: var(--text-primary);
+    text-transform: uppercase;
     transition: color 0.3s;
 }
 
-.logo-mark {
-    color: var(--accent-coffee);
-    flex-shrink: 0;
-    transition: transform 0.3s var(--ease-luxury);
+.brand-sub-coffee {
+    font-family: 'Cormorant Garamond', var(--font-heading), Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    margin-top: -0.15rem;
+    transition: color 0.3s;
 }
 
-.brand-logo:hover .logo-mark {
-    transform: rotate(-8deg) scale(1.05);
-}
-
-.brand-text {
-    font-family: var(--font-heading);
-    font-size: 1.85rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-}
-
-.brand-logo:hover .brand-text {
+.brand-logo:hover .brand-title-coco,
+.brand-logo:hover .brand-sub-coffee {
     color: var(--accent-coffee);
 }
 
@@ -564,20 +574,6 @@ body.cursor-view-active .custom-cursor {
     background-color: #333333;
     transform: translateY(-2px);
     color: #FFFFFF;
-}
-
-.phone-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background-color: #FFFFFF;
-    color: #1A1A1A;
-    padding: 0.75rem 1.4rem;
-    border-radius: 40px;
-    border: 1px solid var(--border-medium);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
 }
 
 .strip-right {
